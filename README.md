@@ -24,6 +24,10 @@ Python is on PyPI. The others are not on a package registry yet, so each one ins
 | Java | [`java`](java) | clone this repository, then `cd java && mvn install`, or compile `java/src/main/java` with `javac` |
 | .NET | [`dotnet`](dotnet) | clone this repository, then `dotnet add reference land-sdk/dotnet/Useland/Useland.csproj` |
 
+## Recipes
+
+[`recipes`](recipes) is land's recipe catalog: a `.land/setup.sh` and a `.land/tests` to start from for each language and package manager. `land add --dry-run --json` suggests the ones that fit a repository. Each client release carries the catalog as tagged here (`recipes/v<release>`). To add one, open a pull request with one file; [`recipes/README.md`](recipes/README.md) has the format.
+
 ## What every SDK has
 
 - `merge` merges branches onto a target and returns the result, with the push command that moves main
