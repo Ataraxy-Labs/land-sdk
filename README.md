@@ -10,18 +10,18 @@ curl -fsSL https://useland.dev/install | sh
 
 ## Install
 
-None of these is on a package registry yet. Each one installs from this repository or from its release.
+Python is on PyPI. The others are not on a package registry yet, so each one installs from this repository or from its release.
 
 | Language | Folder | Install |
 |---|---|---|
-| Python | [`python`](python) | `pip install "git+https://github.com/Ataraxy-Labs/land-sdk@v0.1.0#subdirectory=python"` |
+| Python | [`python`](python) | `pip install useland` |
 | TypeScript | [`typescript`](typescript) | `npm install https://github.com/Ataraxy-Labs/land-sdk/releases/download/v0.1.0/useland-0.1.0.tgz` |
 | Go | [`go`](go) | `go get github.com/Ataraxy-Labs/land-sdk/go@v0.1.0` |
 | Rust | [`rust`](rust) | `useland = { git = "https://github.com/Ataraxy-Labs/land-sdk", tag = "v0.1.0" }` in `Cargo.toml` |
 | Ruby | [`ruby`](ruby) | `gem "useland", git: "https://github.com/Ataraxy-Labs/land-sdk", tag: "v0.1.0", glob: "ruby/*.gemspec"` in the `Gemfile` |
 | Elixir | [`elixir`](elixir) | `{:useland, git: "https://github.com/Ataraxy-Labs/land-sdk", tag: "v0.1.0", sparse: "elixir"}` in `mix.exs` |
 | PHP | [`php`](php) | `composer config repositories.land-sdk vcs https://github.com/Ataraxy-Labs/land-sdk` then `composer require ataraxy-labs/useland:^0.1` |
-| Java | [`java`](java) | clone this repository, then `cd java && mvn install` |
+| Java | [`java`](java) | clone this repository, then `cd java && mvn install`, or compile `java/src/main/java` with `javac` |
 | .NET | [`dotnet`](dotnet) | clone this repository, then `dotnet add reference land-sdk/dotnet/Useland/Useland.csproj` |
 
 ## What every SDK has

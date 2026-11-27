@@ -8,7 +8,8 @@ It is not published to Maven Central yet. Build it from the public repository.
 
 ```sh
 git clone --branch v0.1.0 https://github.com/Ataraxy-Labs/land-sdk
-cd land-sdk/java && mvn install    # then depend on dev.useland:useland:0.1.0, or copy src/main/java/dev/useland
+cd land-sdk/java && mvn install    # then depend on dev.useland:useland:0.1.0
+# or with no Maven: javac -d out $(find src/main -name '*.java') and put out on the classpath
 ```
 
 ```java

@@ -31,8 +31,8 @@ Every non-zero exit raises an error with `code`, `fix` (the command that fixes i
 | 3 | `StillRunningError` | land is still working, so make the same call again |
 | 4 | `CouldNotCheckError` | land could not check, so make the same call again |
 
-Tests run against a fake `land` in `fake` with `python3 -m unittest discover -s tests`. It is not published to PyPI yet. Install it from the public repository.
+Tests run against a fake `land` in `fake` with `python3 -m unittest discover -s tests`. It is on PyPI as `useland`.
 
 ```sh
-pip install "git+https://github.com/Ataraxy-Labs/land-sdk@v0.1.0#subdirectory=python"
+pip install useland
 ```
