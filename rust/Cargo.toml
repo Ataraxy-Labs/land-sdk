@@ -1,0 +1,12 @@
+[package]
+name = "useland"
+version = "0.1.0"
+edition = "2021"
+description = "Typed wrappers over the land CLI's --json output"
+license = "MIT"
+publish = false
+
+[dependencies]
+serde_json = "1"
+
+[workspace]

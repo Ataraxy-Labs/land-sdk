@@ -1,0 +1,19 @@
+[project]
+name = "useland"
+version = "0.1.0"
+description = "Typed wrappers over the land CLI's --json output"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.urls]
+Homepage = "https://useland.dev"
+Documentation = "https://docs.useland.dev"
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["useland"]

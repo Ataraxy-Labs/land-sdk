@@ -1,0 +1,12 @@
+#!/bin/sh
+# A fake `land` for the SDK tests: prints what a real one prints for a few calls, and records its arguments and stdin.
+printf '%s\n' "$*" > "$FAKE_LAND_LOG"
+cat > "$FAKE_LAND_LOG.stdin"
+case "$1 $2" in
+  "merge sub/ok") echo '{"landed":["sub/ok"],"refused":[],"result":"abc","push":"git push --atomic origin abc:main refs/land/attestations"}' ;;
+  "merge sub/bad") echo '{"landed":[],"refused":[{"branch":"sub/bad","test":"users"}]}'; exit 1 ;;
+  "merge --local") echo '{"local":true,"signed":false,"recorded":false,"landed":false,"verdict":null,"said":"unsigned","tests":{"total":1,"ran":1,"failed":0,"ran_units":[{"name":"spec","state":"ran","seconds":0.4}]}}' ;;
+  "secret set") echo '{"set":"STRIPE_KEY","repo":"me/shop"}' ;;
+  "logs users") echo '{"error":"no merge on this machine was refused","fix":"land merge <branch>... --onto main","docs":"https://docs.useland.dev/errors#exit-2"}'; exit 2 ;;
+  *) echo '{"job":"j1","state":"running","again":"land add"}'; exit 3 ;;
+esac

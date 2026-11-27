@@ -1,0 +1,8 @@
+{
+  "name": "ataraxy-labs/useland",
+  "description": "Typed wrappers over the land CLI's --json output",
+  "type": "library",
+  "license": "MIT",
+  "require": { "php": ">=8.1", "ext-json": "*" },
+  "autoload": { "files": ["src/Land.php"] }
+}

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.egg-info/
+__pycache__/
+target/
+Cargo.lock
+bin/
+obj/
+_build/
+deps/
+vendor/
+*.tgz
