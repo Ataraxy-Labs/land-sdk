@@ -31,7 +31,29 @@ class Tests(TypedDict, total=False):
     ran_units: List[RanUnit]
 
 
+class Change(TypedDict, total=False):
+    """One file a landing changes on the target. A binary file has no line counts."""
+
+    path: str
+    status: str  # added, deleted, modified or renamed
+    # "from" (the old path of a rename) is a Python keyword: read it as change["from"]
+    added: int
+    removed: int
+    binary: bool
+
+
+class Changes(TypedDict, total=False):
+    """What a landing changes on the target: git's own counts of the target against the result."""
+
+    files: int
+    added: int
+    removed: int
+    entries: List[Change]  # at most 500 files; ``more`` says how many are left out
+    more: int
+
+
 class MergeAnswer(TypedDict, total=False):
+    changes: Changes  # absent when nothing landed
     landed: List[str]
     refused: List[Dict[str, Any]]
     result: str  # the commit to push

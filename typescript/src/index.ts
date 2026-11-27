@@ -32,7 +32,30 @@ export interface Tests {
   [k: string]: unknown
 }
 
+/** One file a landing changes on the target. A binary file has no line counts. */
+export interface Change {
+  path: string
+  status: 'added' | 'deleted' | 'modified' | 'renamed'
+  /** the old path of a rename */
+  from?: string
+  added?: number
+  removed?: number
+  binary?: boolean
+}
+
+/** What a landing changes on the target: git's own counts of the target against the result. */
+export interface Changes {
+  files: number
+  added: number
+  removed: number
+  /** at most 500 files; `more` says how many are left out */
+  entries: Change[]
+  more?: number
+}
+
 export interface MergeAnswer {
+  /** what the landing changes on the target; absent when nothing landed */
+  changes?: Changes
   landed: string[]
   refused: Array<{ branch?: string; [k: string]: unknown }>
   /** the commit to push */

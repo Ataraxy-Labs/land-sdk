@@ -35,12 +35,34 @@ type Tests struct {
 	RanUnits []RanUnit `json:"ran_units"`
 }
 
+// Change is one file a landing changes on the target. Status is added, deleted, modified or renamed (From is the
+// old path of a rename). A binary file has no line counts.
+type Change struct {
+	Path    string `json:"path"`
+	Status  string `json:"status"`
+	From    string `json:"from,omitempty"`
+	Added   int    `json:"added"`
+	Removed int    `json:"removed"`
+	Binary  bool   `json:"binary,omitempty"`
+}
+
+// Changes is what a landing changes on the target: git's own counts of the target against the result. Entries lists
+// at most 500 files; More says how many it leaves out.
+type Changes struct {
+	Files   int      `json:"files"`
+	Added   int      `json:"added"`
+	Removed int      `json:"removed"`
+	Entries []Change `json:"entries"`
+	More    int      `json:"more,omitempty"`
+}
+
 type MergeAnswer struct {
 	Landed  []string         `json:"landed"`
 	Refused []map[string]any `json:"refused"`
 	Result  string           `json:"result"` // the commit to push
 	Push    string           `json:"push"`   // the exact push command
 	Tests   *Tests           `json:"tests"`
+	Changes *Changes         `json:"changes"` // nil when nothing landed
 }
 
 // LocalAnswer is `land merge --local`: never a verdict. Signed, Recorded and Landed are always false.
